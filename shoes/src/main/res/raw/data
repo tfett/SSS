@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<data>
+    <!-- enum of {GK,RD,CD,LD,RM,CM,LM,RF,CF,LF} -->
+    <position>GK</position>
+    <mileage>
+        <distance>5.2</distance>
+        <time>75</time>
+    </mileage>
+    <speed>
+
+        <avg>6.3</avg>
+        <top>9.4</top>
+    </speed>
+    <burst>
+        <count>24</count>
+        <time>137</time>
+    </burst>
+    <zone>
+        <in>79</in>
+        <out>21</out>
+    </zone>
+    <touches>
+        <total>213</total>
+        <shots>7</shots>
+    </touches>
+    <score>
+        <multiplier>4</multiplier>
+        <current>2300</current>
+        <total>9200</total>
+    </score>
+</data>

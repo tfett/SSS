@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>
+    <color name="gray">#CCCCCC</color>
+    <color name="container_title">#FFFFFFFF</color>
+ <color name="violet_blue">#003399</color>
+  <color name="notepad_text">#AA0000FF</color>
+</resources>
