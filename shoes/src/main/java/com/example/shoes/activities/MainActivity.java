@@ -2,7 +2,11 @@ package com.example.shoes.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,26 +17,28 @@ import com.example.shoes.R;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
+
 
 public class MainActivity extends Activity {
 	 public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
-//        Settings.addLoggingBehavior(LoggingBehavior.REQUESTS);
-//
-//        Request request = Request.newGraphPathRequest(null, "/4", new Request.Callback() {
-//            @Override
-//            public void onCompleted(Response response) {
-//                if(response.getError() != null) {
-//                    Log.i("MainActivity", String.format("Error making request: %s", response.getError()));
-//                } else {
-//                    GraphUser user = response.getGraphObjectAs(GraphUser.class);
-//                    Log.i("MainActivity", String.format("Name: %s", user.getName()));
-//                }
-//            }
-//        });
-//        request.executeAsync();
+        try
+        {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.example.shoes",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        }
+        catch (Exception e)
+        {
+            Log.d("DEBUGGG",e.toString());
+        }
 
 
 

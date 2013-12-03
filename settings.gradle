@@ -1,2 +1,2 @@
 include ':shoes'
-//include ':libraries:facebook'
+include ':libraries:facebook'
