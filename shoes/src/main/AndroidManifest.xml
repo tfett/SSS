@@ -17,9 +17,11 @@
         >
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBP_SqjWlBCM3mWm2MzmkRXZqw_gv3MZ5w"/>
+                        android:value="AIzaSyBP_SqjWlBCM3mWm2MzmkRXZqw_gv3MZ5w"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name" >
@@ -28,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.facebook.LoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
         <activity
             android:name=".activities.GraphActivity"
             android:label="Graph"
