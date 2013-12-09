@@ -88,7 +88,7 @@
                 android:layout_marginRight="60dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mile"
+                android:text=" km"
               />
         </RelativeLayout>
         <!--right-->
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="mins" />
+                android:text=" minutes" />
         </RelativeLayout>
 
 
@@ -168,7 +168,7 @@
                 android:layout_marginRight="60dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mile"
+                android:text=" km/h"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -211,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="mi" />
+                android:text=" km/h" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -298,12 +298,13 @@
 
         <TextView
             style="@style/statistics_value"
-            android:id="@+id/textView4"
+            android:id="@+id/inZone"
             android:layout_marginRight="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6.3 mph"
             android:layout_weight="0.31" />
+
         <TextView
             android:id="@+id/total_count_unit"
             style="@style/statistics_value"
@@ -321,7 +322,7 @@
 
         <TextView
             style="@style/statistics_value"
-            android:id="@+id/textView5"
+            android:id="@+id/outZone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9.4mi" />
@@ -355,8 +356,9 @@
             android:layout_marginRight="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6.3 mph"
+            android:text="125"
             android:layout_weight="0.31" />
+
 
         ImageView
             android:id="@+id/imageView3"
@@ -376,7 +378,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9.4mi" />
+            android:text="11" />
     </LinearLayout>
 
     <TextView
@@ -442,5 +444,13 @@
             android:layout_height="wrap_content"
             android:text="9200" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find your similiar players"
+        android:id="@+id/button"
+        android:onClick="invokeSimiliarityActivity"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

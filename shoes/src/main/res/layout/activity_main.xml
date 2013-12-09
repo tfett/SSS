@@ -10,23 +10,24 @@
         android:orientation="vertical" >
         <com.facebook.widget.LoginButton
             android:id="@+id/authButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="176dp"
+            android:layout_marginBottom="20px"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            />
+            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/button_graph"
-            android:layout_width="176dp"
+
             android:layout_height="100dp"
             android:layout_marginBottom="20px"
             android:layout_weight="5"
             android:onClick="invokeGraphActivity"
-            android:text="@string/button_gpx" />
+            android:text="@string/button_gpx"
+            android:layout_width="176dp" />
 
         <Button
             android:id="@+id/button_statistics"
-            android:layout_width="match_parent"
+            android:layout_width="176dp"
             android:layout_height="100dp"
             android:layout_marginTop="20px"
             android:onClick="invokeStatisticsActivity"
@@ -35,6 +36,5 @@
     </LinearLayout>
 
 
-       
 </RelativeLayout>
 

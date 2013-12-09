@@ -1,0 +1,2 @@
+CREATE TABLE Stats( _id integer primary key asc,GameID int, Half int, Distance int, Time time, AvgSpeed float, TopSpeed float, InZone float, OutZone float);
+CREATE TABLE players (_id INTEGER  PRIMARY KEY DEFAULT NULL,name TEXT,avgspeed double,img text);

@@ -1,60 +1,71 @@
 package com.example.shoes.activities;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.util.Base64;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.shoes.IO;
 import com.example.shoes.R;
+import com.example.shoes.fragment.MainFragment;
+import com.facebook.LoggingBehavior;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Settings;
+import com.facebook.model.GraphUser;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.MessageDigest;
+public class MainActivity extends FragmentActivity {
+    private MainFragment mainFragment;
+	 public final static String EXTRA_MESSAGE = "com.example.shoes.MESSAGE";
+    public void testFacebook()
+    {
+        Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+        Settings.addLoggingBehavior(LoggingBehavior.REQUESTS);
 
-
-public class MainActivity extends Activity {
-	 public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+        Request request = Request.newGraphPathRequest(null, "/4", new Request.Callback() {
+            @Override
+            public void onCompleted(Response response) {
+                if (response.getError() != null) {
+                    Log.i("MainActivity", String.format("Error making request: %s", response.getError()));
+                } else {
+                    GraphUser user = response.getGraphObjectAs(GraphUser.class);
+                    Log.i("APPDEBUG", String.format("Name is: %s", user.getName()));
+                }
+            }
+        });
+        request.executeAsync();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try
         {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.example.shoes",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
+            testFacebook();
         }
         catch (Exception e)
         {
             Log.d("DEBUGGG",e.toString());
         }
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InputStream is = getResources().openRawResource(R.raw.data);
-        try
-        {
-          String content = IO.convertStreamToString(is);
 
+        if (savedInstanceState == null) {
+            // Add the fragment on initial activity setup
+            mainFragment = new MainFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(android.R.id.content, mainFragment)
+                    .commit();
+        } else {
+            // Or set the fragment from restored state info
+            mainFragment = (MainFragment) getSupportFragmentManager()
+                    .findFragmentById(android.R.id.content);
         }
-        catch (Exception e)
-        {
-            Log.d("DEBUGGG", "cannot read file");
-        }
-//        InputStream ins = (InputStream)getResources().openRawResource(R.raw.data);
+
     }
 
     public String readTextFile(InputStream inputStream) {
