@@ -24,8 +24,8 @@ public class Statistics {
         this._id = c.getInt(c.getColumnIndexOrThrow(DatabaseHandler.GAMEID));
         this.distance = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.DISTANCE));
         this.time = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TIME))/60; //convert to minute;
-        this.avg_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.STATS_AVGSPEED));
-        this.top_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TOPSPEED));
+        this.avg_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.STATS_AVGSPEED)) * 1.6;//convert to km
+        this.top_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TOPSPEED)) * 1.6;
         this.half = c.getInt(c.getColumnIndexOrThrow(DatabaseHandler.HALF));
         Double tmp =  c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.INZONE));
         this.inZone = tmp.intValue();
