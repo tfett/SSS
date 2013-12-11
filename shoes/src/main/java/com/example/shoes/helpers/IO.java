@@ -1,4 +1,4 @@
-package com.example.shoes;
+package com.example.shoes.helpers;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
