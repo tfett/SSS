@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+<LinearLayout
     android:id="@+id/statistic_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical" >
+
  	<!-- Date -->
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="fill_parent"
-        android:text="Thursday, Oct .25thd"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
+    <!--<TextView-->
+        <!--android:id="@+id/date"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:text="Thursday, Oct .25thd"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:textSize="25dp"-->
+        <!--android:gravity="center_horizontal" />-->
 	
 	<!-- Position container -->
     <RelativeLayout
@@ -452,5 +458,14 @@
         android:id="@+id/button"
         android:onClick="invokeSimiliarityActivity"
         android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:id="@+id/shareButton2"
+        android:layout_gravity="center_horizontal"
+     />
+
 
 </LinearLayout>
+    </ScrollView>

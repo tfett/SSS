@@ -1,23 +1,37 @@
 package com.example.shoes.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.shoes.R;
 import com.example.shoes.database.DatabaseHandler;
+import com.example.shoes.fragment.StatisticsFragment;
 import com.example.shoes.model.Statistics;
 
 import java.io.IOException;
 
-public class StatisticsActivity extends Activity {
+public class StatisticsActivity extends FragmentActivity {
     public final static String EXTRA_MESSAGE = "com.example.shoes.MESSAGE";
+    private StatisticsFragment statisticsFragment;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+            // Add the fragment on initial activity setup
+            statisticsFragment = new StatisticsFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(android.R.id.content, statisticsFragment)
+                    .commit();
+        } else {
+            // Or set the fragment from restored state info
+            statisticsFragment = (StatisticsFragment) getSupportFragmentManager()
+                    .findFragmentById(android.R.id.content);
+        }
 		setContentView(R.layout.activity_statistics);
 		Intent intent = getIntent();
 		String msg = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
@@ -59,10 +73,6 @@ public class StatisticsActivity extends Activity {
 
             TextView outZone = (TextView)findViewById(R.id.outZone);
             outZone.setText(stat.getOutZone());
-
-
-
-
         }
         catch (Exception e)
         {
