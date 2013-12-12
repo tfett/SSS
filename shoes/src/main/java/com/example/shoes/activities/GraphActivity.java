@@ -58,6 +58,11 @@ public class GraphActivity extends Activity {
         ArrayList<LatLng> boundary_points = CoordinateReader.getCoordinates(boundary_input);
         PolygonOptions boudaryOptions = new PolygonOptions().addAll(boundary_points).strokeWidth(10).strokeColor(Color.MAGENTA);
         Polygon  boundary = map.addPolygon(boudaryOptions);
+        //Draw cmbox
+       InputStream cm_input = getResources().openRawResource(R.raw.cmbox);
+       ArrayList<LatLng> cm_points = CoordinateReader.getCoordinates(cm_input);
+       PolygonOptions cmOptions = new PolygonOptions().addAll(cm_points).strokeWidth(10).strokeColor(Color.GREEN);
+       Polygon  cm = map.addPolygon(cmOptions);
 
         LatLng zoomPoint = new LatLng(45.511842,-122.686632);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(zoomPoint, 19);
