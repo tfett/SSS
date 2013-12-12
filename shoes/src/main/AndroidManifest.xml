@@ -41,7 +41,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.shoes.MainActivity" />
         </activity>
-
+        <activity
+            android:name=".activities.GraphHalfSelectActivity"
+            android:label="Graph"
+            android:parentActivityName="com.example.shoes.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shoes.MainActivity" />
+        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:label="Login"
@@ -61,14 +68,6 @@
         </activity>
 
 
-        <activity
-            android:name=".activities.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
-            android:parentActivityName="com.example.shoes.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.shoes.MainActivity" />
-        </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>

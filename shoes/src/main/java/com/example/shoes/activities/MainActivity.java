@@ -73,19 +73,13 @@ public class MainActivity extends FragmentActivity {
     
     public void invokeLoginActivity(View view) {
     	Intent intent = new Intent(this, LoginActivity.class);
-//    	EditText ed = (EditText) findViewById(R.id.edit_message);
-//    	String message = ed.getText().IO();
     	String message = "fdsfsda";
     	intent.putExtra(EXTRA_MESSAGE, message);
     	startActivity(intent);
     }
     
-    public void invokeGraphActivity(View view) {
-    	Intent intent = new Intent(this, GraphActivity.class);
-//    	EditText ed = (EditText) findViewById(R.id.edit_message);
-//    	String message = ed.getText().IO();
-    	String message = "fdsfsda";
-    	intent.putExtra(EXTRA_MESSAGE, message);
+    public void invokeGraphHalfSelectActivity(View view) {
+    	Intent intent = new Intent(this, GraphHalfSelectActivity.class);
     	startActivity(intent);
     }
     

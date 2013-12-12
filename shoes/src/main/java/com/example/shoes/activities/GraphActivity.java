@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class GraphActivity extends Activity {
 
-
+    public final static String EXTRA_MESSAGE = "com.example.shoes.MESSAGE";
     public GraphActivity() {
         super();
     }
@@ -34,19 +34,21 @@ public class GraphActivity extends Activity {
 		setContentView(R.layout.activity_graph);
 		// Show the Up button in the action bar.
 		Intent intent = getIntent();
+        int half =intent.getIntExtra(EXTRA_MESSAGE,-1);
+        int gpx_data = 0;
+        if (half ==1)
+            gpx_data = R.raw.first;
+        if (half ==2)
+            gpx_data = R.raw.second;
        try{
         GoogleMap map;
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        if (map==null)
-            Log.d("SUCESSS","SUCESSS");
-        else
-            Log.d("FAILTURE", "FAILTURE");
         // Sets the map type to be "hybrid"
         map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         //read coordinate
 
         //Draw user's gps movement data
-        InputStream gpx_input = getResources().openRawResource(R.raw.gpx);
+        InputStream gpx_input = getResources().openRawResource(gpx_data);
         ArrayList<LatLng> gpx_points = CoordinateReader.getCoordinates(gpx_input);
         PolylineOptions gpxOptions = new PolylineOptions().addAll(gpx_points).width(3).color(Color.RED);
         Polyline gpx = map.addPolyline(gpxOptions);
@@ -59,7 +61,8 @@ public class GraphActivity extends Activity {
 
         LatLng zoomPoint = new LatLng(45.511842,-122.686632);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(zoomPoint, 19);
-        map.animateCamera(yourLocation);
+        //map.animateCamera(yourLocation);
+           map.moveCamera(yourLocation);
        }
        catch (Exception e)
        {
