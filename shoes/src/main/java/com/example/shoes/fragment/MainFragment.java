@@ -100,7 +100,7 @@ public class MainFragment extends Fragment {
 
         LoginButton authButton = (LoginButton) view.findViewById(R.id.authButton);
         authButton.setFragment(this);
-        authButton.setReadPermissions(Arrays.asList("user_likes", "user_status","publish_actions"));
+        authButton.setReadPermissions(Arrays.asList("user_likes", "user_status"));
 
         //add listerner for share button
         return view;
