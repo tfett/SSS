@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/scroll_view_statistics"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:id="@+id/statistic_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+ 	<!-- Date -->
+    <!--<TextView-->
+        <!--android:id="@+id/date"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:text="Thursday, Oct .25thd"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:textSize="25dp"-->
+        <!--android:gravity="center_horizontal" />-->
+	
+	<!-- Position container -->
+    <RelativeLayout
+        android:id="@+id/position_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     >
+	<!-- Position title -->
+        <TextView
+            style="@style/statistics_container_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	<!-- Caption -->
+        <TextView
+            android:id="@+id/position"
+            style="@style/statistics_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Center Mid"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+		/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/position_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+      <Button android:layout_height="wrap_content"
+          android:id="@+id/button_stat_first"
+          android:text="First half"
+          android:layout_centerHorizontal="true"
+                android:layout_alignParentLeft="true"
+          android:width="250px"
+          android:layout_marginLeft="130px"
+          android:onClick="firstHalfSelected"
+          android:layout_width="wrap_content" />
+        <Button android:layout_height="wrap_content"
+            android:id="@+id/button_stat_second"
+            android:text="Second half"
+            android:onClick="secondHalfSelected"
+            android:width="250px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="130px"
+            android:layout_width="wrap_content" />
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_centerInParent="true"-->
+                <!---->
+            <!--android:layout_width="wrap_content" />-->
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_width="wrap_content" />-->
+    </RelativeLayout>
+    
+    <!-- Mileage title -->
+    <TextView
+        style="@style/statistics_container_title"
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mileage"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <!-- Mileage container -->
+    <LinearLayout
+        style="@style/statistics_container"
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+        <!--left-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/distance_caption"
+                style="@style/statistics_caption"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Distance: " />
+
+            <TextView
+                style="@style/statistics_value"
+                android:id="@+id/distance"
+                android:layout_toRightOf="@id/distance_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6.3"
+                />
+            <TextView
+                style="@style/statistics_value"
+                android:id="@+id/distance_unit"
+                android:layout_toRightOf="@id/distance"
+                android:layout_marginRight="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" km"
+              />
+        </RelativeLayout>
+        <!--right-->
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content">
+            <TextView
+                style="@style/statistics_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/time"
+                android:text="Time" />
+
+            <TextView
+                android:id="@+id/time"
+                style="@style/statistics_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_toLeftOf="@+id/time_unit"
+                android:text="9.4" />
+            <TextView
+                android:id="@+id/time_unit"
+                style="@style/statistics_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text=" minutes" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    <!--Speed title  -->
+    <TextView
+        android:id="@+id/speed"
+        style="@style/statistics_container_title"
+        android:layout_width="wrap_content"        
+        android:layout_height="wrap_content"
+        android:text="Speed"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	 <!--Speed container  -->
+
+    <LinearLayout
+        android:id="@+id/milege_container"
+        style="@style/statistics_container"     
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <!-- Caption -->
+            <TextView
+                android:id="@+id/avg_speed_caption"
+                style="@style/statistics_caption"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avg. Speed: "
+                android:layout_alignParentLeft="true"
+                 />
+            <!--Value-->
+            <TextView
+                style="@style/statistics_value"
+                android:id="@+id/avg_speed"
+                android:layout_toRightOf="@id/avg_speed_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6.3"
+                />
+            <!--Unit-->
+            <TextView
+                style="@style/statistics_value"
+                android:id="@+id/avg_speed_unit"
+                android:layout_toRightOf="@id/avg_speed"
+                android:layout_marginRight="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" km/h"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+        android:layout_weight="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+           >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_toLeftOf="@+id/top_caption"
+                android:src="@drawable/star" />
+            <!---->
+            <!-- Caption -->
+            <TextView
+                android:id="@+id/top_caption"
+                style="@style/statistics_caption"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/top"
+                android:text="Top"
+                 />
+    <!---->
+            <TextView
+                android:id="@+id/top"
+                style="@style/statistics_value"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/top_unit"
+                android:text="9.4"
+            />
+
+            <TextView
+                android:id="@+id/top_unit"
+                style="@style/statistics_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text=" km/h" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+         style="@style/statistics_container_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Burst"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        style="@style/statistics_container"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Count: " />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/total_count"
+            android:layout_marginRight="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="75"
+            android:layout_weight="0.31" />
+        <TextView
+            android:id="@+id/total_count_unit"
+            style="@style/statistics_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Total Time" />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="137" />
+        <TextView
+            android:id="@+id/total_time_unit"
+            style="@style/statistics_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="secs" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/statistics_container_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zone Rating"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView3" />
+
+    <LinearLayout
+        style="@style/statistics_container"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Zone: " />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/inZone"
+            android:layout_marginRight="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6.3 mph"
+            android:layout_weight="0.31" />
+
+        <TextView
+            android:id="@+id/total_count_unit"
+            style="@style/statistics_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Out Zone" />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/outZone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.4mi" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/statistics_container_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Touches"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView6" />
+
+    <LinearLayout
+        style="@style/statistics_container"
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: " />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/textView7"
+            android:layout_marginRight="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="125"
+            android:layout_weight="0.31" />
+
+
+        ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:src="@drawable/star" />
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Shots: " />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/statistics_container_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView9" />
+
+    <LinearLayout
+        style="@style/statistics_container"
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiplier: " />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/multiplier_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x"
+            />
+
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/score_multiplier"
+            android:layout_marginRight="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/score"
+            android:layout_marginRight="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3000"
+             />
+
+        <TextView
+            style="@style/statistics_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Total" />
+
+        <TextView
+            style="@style/statistics_value"
+            android:id="@+id/score_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9200" />
+    </LinearLayout>
+    <TextView
+        style="@style/statistics_container_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Similiar Players"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView9" />
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:background="@drawable/bg"
+        android:layout_height="542dp">
+
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+                android:id="@+id/player1_img"
+                android:src="@drawable/img_101303"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player1_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Antonio Valencia"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player1_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+
+                android:id="@+id/player2_img"
+                android:src="@drawable/img_101594"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player2_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cristiano Ronaldo"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player2_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+
+                android:id="@+id/player3_img"
+                android:src="@drawable/img_101642"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player3_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cristiano Ronaldo"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player3_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:id="@+id/shareButton2"
+        android:layout_gravity="center_horizontal"
+     />
+
+
+</LinearLayout>
+    </ScrollView>
