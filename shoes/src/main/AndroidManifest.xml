@@ -60,15 +60,6 @@
                 android:value="com.example.shoes.MainActivity" />
         </activity>
 
-        <activity
-            android:name=".activities.SimilarityActivity"
-            android:label="Similiarity"
-            android:parentActivityName="com.example.shoes.activities.StatisticsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.shoes.activities.StatisticsActivity" />
-        </activity>
-
 
         <activity
             android:name=".activities.DisplayMessageActivity"

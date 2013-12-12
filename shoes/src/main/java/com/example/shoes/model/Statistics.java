@@ -64,7 +64,9 @@ public class Statistics {
     public String getAvg_speed() {
         return doubleToString(avg_speed);
     }
-
+    public Double getAvg_speedAsDouble() {
+        return avg_speed;
+    }
     public String getTime() {
         return doubleToString(time);
     }

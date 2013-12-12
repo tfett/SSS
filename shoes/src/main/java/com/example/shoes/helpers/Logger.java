@@ -10,4 +10,8 @@ public class Logger {
     {
         Log.d("APPDEBUG", msg);
     }
+    public  static void debug(int msg)
+    {
+        Log.d("APPDEBUG", Integer.toString(msg));
+    }
 }
