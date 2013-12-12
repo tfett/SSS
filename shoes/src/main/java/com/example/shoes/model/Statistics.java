@@ -16,6 +16,8 @@ public class Statistics {
     private double top_speed;
     private int inZone;
     private int outZone;
+    public static final int  FIRST_HALF=1;
+    public static final int  SECOND_HALF=2;
 
     public Statistics(Cursor c) throws Exception
     {

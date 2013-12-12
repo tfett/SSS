@@ -57,7 +57,31 @@
         android:layout_height="wrap_content"
         >
       <Button android:layout_height="wrap_content"
+          android:id="@+id/button_stat_first"
+          android:text="First half"
+          android:layout_centerHorizontal="true"
+                android:layout_alignParentLeft="true"
+          android:width="250px"
+          android:layout_marginLeft="130px"
+          android:onClick="firstHalfSelected"
           android:layout_width="wrap_content" />
+        <Button android:layout_height="wrap_content"
+            android:id="@+id/button_stat_second"
+            android:text="Second half"
+            android:onClick="secondHalfSelected"
+            android:width="250px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="130px"
+            android:layout_width="wrap_content" />
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_centerInParent="true"-->
+                <!---->
+            <!--android:layout_width="wrap_content" />-->
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_width="wrap_content" />-->
     </RelativeLayout>
     
     <!-- Mileage title -->

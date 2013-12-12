@@ -39,6 +39,8 @@ import java.util.List;
 public class StatisticsFragment extends MainFragment{
     protected View view;
     protected DatabaseHandler db;
+    protected  Button first_button;
+    protected  Button second_button;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -51,7 +53,10 @@ public class StatisticsFragment extends MainFragment{
 
         view = inflater.inflate(R.layout.activity_statistics, container, false);
 
-
+        //the default is to display the first half
+        first_button = (Button)view.findViewById(R.id.button_stat_first);
+        second_button = (Button)view.findViewById(R.id.button_stat_second);
+        first_button.setEnabled(false);
         //add listerner for share button
         shareButton = (Button) view.findViewById(R.id.shareButton2);
         shareButton.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +75,7 @@ public class StatisticsFragment extends MainFragment{
             Log.d("APPDEBUG", e.toString());
         }
         db.openDataBase();
-        Cursor cursor = db.getStat(3);
+        Cursor cursor = db.getStat(Statistics.FIRST_HALF);
         //insert into text field
         try
         {
@@ -90,27 +95,11 @@ public class StatisticsFragment extends MainFragment{
         ScrollView z = (ScrollView) view.findViewById(R.id.scroll_view_statistics);
         int totalHeight = z.getChildAt(0).getHeight();
         int totalWidth = z.getChildAt(0).getWidth();
-//        Logger.debug(totalWidth);
-//        Logger.debug(totalHeight);
         Bitmap b = Bitmap.createBitmap(u.getWidth(), totalHeight, Bitmap.Config.ARGB_8888);
-
         Canvas c = new Canvas(b);
-//        u.layout(0, 0, u.getLayoutParams().width,totalHeight);
         u.draw(c);
         return b;
 
-
-////
-//
-//
-//        u.measure(View.MeasureSpec.makeMeasureSpec(
-//                u.getLayoutParams().width, View.MeasureSpec.EXACTLY),
-//                View.MeasureSpec.makeMeasureSpec(
-//                        u.getLayoutParams().height,
-//                        View.MeasureSpec.EXACTLY));
-//        u.layout(0, 0, totalHeight, totalHeight);
-//        Bitmap b = Bitmap.createBitmap(u.getDrawingCache());
-//        u.setDrawingCacheEnabled(false);
 
 
     }
@@ -213,15 +202,12 @@ public class StatisticsFragment extends MainFragment{
                 speed.setText(player.getAvg_speed());
                 cursor.moveToNext();
             }
-
-
-
-
-
         }
         catch (Exception e)
         {
             Log.d("APPDEBUG", e.toString());
         }
     }
+
+
 }

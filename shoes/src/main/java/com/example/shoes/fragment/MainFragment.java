@@ -103,13 +103,6 @@ public class MainFragment extends Fragment {
         authButton.setReadPermissions(Arrays.asList("user_likes", "user_status","publish_actions"));
 
         //add listerner for share button
-        shareButton = (Button) view.findViewById(R.id.shareButton);
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                publishStory();
-            }
-        });
         return view;
 
     }
@@ -182,12 +175,6 @@ public class MainFragment extends Fragment {
             Logger.debug("log in");
         } else if (state.isClosed()) {
             Logger.debug("log out");
-        }
-        shareButton.setVisibility(View.VISIBLE);
-        if (pendingPublishReauthorization &&
-                state.equals(SessionState.OPENED_TOKEN_UPDATED)) {
-            pendingPublishReauthorization = false;
-            publishStory();
         }
     }
 }
