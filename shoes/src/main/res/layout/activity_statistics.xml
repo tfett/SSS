@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/scroll_view_statistics"
+    android:layout_height="wrap_content">
+
+<LinearLayout
     android:id="@+id/statistic_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical" >
+
  	<!-- Date -->
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="fill_parent"
-        android:text="Thursday, Oct .25thd"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
+    <!--<TextView-->
+        <!--android:id="@+id/date"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:text="Thursday, Oct .25thd"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:textSize="25dp"-->
+        <!--android:gravity="center_horizontal" />-->
 	
 	<!-- Position container -->
     <RelativeLayout
@@ -43,6 +50,38 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
 		/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/position_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+      <Button android:layout_height="wrap_content"
+          android:id="@+id/button_stat_first"
+          android:text="First half"
+          android:layout_centerHorizontal="true"
+                android:layout_alignParentLeft="true"
+          android:width="250px"
+          android:layout_marginLeft="130px"
+          android:onClick="firstHalfSelected"
+          android:layout_width="wrap_content" />
+        <Button android:layout_height="wrap_content"
+            android:id="@+id/button_stat_second"
+            android:text="Second half"
+            android:onClick="secondHalfSelected"
+            android:width="250px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="130px"
+            android:layout_width="wrap_content" />
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_centerInParent="true"-->
+                <!---->
+            <!--android:layout_width="wrap_content" />-->
+        <!--<Button android:layout_height="wrap_content"-->
+            <!--android:text="Second half"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_width="wrap_content" />-->
     </RelativeLayout>
     
     <!-- Mileage title -->
@@ -444,13 +483,187 @@
             android:layout_height="wrap_content"
             android:text="9200" />
     </LinearLayout>
-
-    <Button
+    <TextView
+        style="@style/statistics_container_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find your similiar players"
-        android:id="@+id/button"
-        android:onClick="invokeSimiliarityActivity"
-        android:layout_gravity="center_horizontal" />
+        android:text="Similiar Players"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView9" />
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:background="@drawable/bg"
+        android:layout_height="542dp">
+
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+                android:id="@+id/player1_img"
+                android:src="@drawable/img_101303"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player1_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Antonio Valencia"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player1_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+
+                android:id="@+id/player2_img"
+                android:src="@drawable/img_101594"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player2_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cristiano Ronaldo"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player2_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/similarity_outer_container">
+
+            <ImageView
+                style="@style/similarity_img"
+
+                android:id="@+id/player3_img"
+                android:src="@drawable/img_101642"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="100px"
+                android:paddingLeft="70px"
+                >
+                <!--Name-->
+                <LinearLayout
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/player3_name"
+                        style="@style/similarity_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cristiano Ronaldo"
+                        />
+                </LinearLayout>
+                <!--Average Speed-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        style="@style/similarity_speed_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avg Speed (km/h): "
+
+                        />
+                    <TextView
+                        android:id="@+id/player3_avg_speed"
+                        style="@style/similarity_highlight"
+                        android:text="8.7"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:id="@+id/shareButton2"
+        android:layout_gravity="center_horizontal"
+     />
+
 
 </LinearLayout>
+    </ScrollView>

@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.shoes.R;
+import com.example.shoes.helpers.Logger;
 import com.example.shoes.model.Statistics;
 
 import java.io.FileOutputStream;
@@ -23,7 +24,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     // Database Name
     public static  String DB_PATH = "";
@@ -174,12 +175,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     //select statistic based on id
-    public Cursor getStat(int id) {
-        String countQuery = "SELECT  * FROM " + TABLE_STATISTICS;
+    public Cursor getStat(int half) {
+        String countQuery = "SELECT  * FROM " + TABLE_STATISTICS+" where "+HALF+" = "+Integer.toString(half);
+        Logger.debug(countQuery);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-
-
         // return count
         cursor.moveToFirst();
         //distance, time, avg_speed, top_speed

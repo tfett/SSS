@@ -3,53 +3,20 @@ package com.example.shoes.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.shoes.R;
 import com.example.shoes.fragment.MainFragment;
-import com.facebook.LoggingBehavior;
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Settings;
-import com.facebook.model.GraphUser;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 public class MainActivity extends FragmentActivity {
+    public final static String EXTRA_MESSAGE = "com.example.shoes.MESSAGE";
     private MainFragment mainFragment;
-	 public final static String EXTRA_MESSAGE = "com.example.shoes.MESSAGE";
-    public void testFacebook()
-    {
-        Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
-        Settings.addLoggingBehavior(LoggingBehavior.REQUESTS);
-
-        Request request = Request.newGraphPathRequest(null, "/4", new Request.Callback() {
-            @Override
-            public void onCompleted(Response response) {
-                if (response.getError() != null) {
-                    Log.i("MainActivity", String.format("Error making request: %s", response.getError()));
-                } else {
-                    GraphUser user = response.getGraphObjectAs(GraphUser.class);
-                    Log.i("APPDEBUG", String.format("Name is: %s", user.getName()));
-                }
-            }
-        });
-        request.executeAsync();
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        try
-        {
-            testFacebook();
-        }
-        catch (Exception e)
-        {
-            Log.d("DEBUGGG",e.toString());
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -106,19 +73,13 @@ public class MainActivity extends FragmentActivity {
     
     public void invokeLoginActivity(View view) {
     	Intent intent = new Intent(this, LoginActivity.class);
-//    	EditText ed = (EditText) findViewById(R.id.edit_message);
-//    	String message = ed.getText().IO();
     	String message = "fdsfsda";
     	intent.putExtra(EXTRA_MESSAGE, message);
     	startActivity(intent);
     }
     
-    public void invokeGraphActivity(View view) {
-    	Intent intent = new Intent(this, GraphActivity.class);
-//    	EditText ed = (EditText) findViewById(R.id.edit_message);
-//    	String message = ed.getText().IO();
-    	String message = "fdsfsda";
-    	intent.putExtra(EXTRA_MESSAGE, message);
+    public void invokeGraphHalfSelectActivity(View view) {
+    	Intent intent = new Intent(this, GraphHalfSelectActivity.class);
     	startActivity(intent);
     }
     

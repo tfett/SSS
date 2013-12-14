@@ -16,6 +16,8 @@ public class Statistics {
     private double top_speed;
     private int inZone;
     private int outZone;
+    public static final int  FIRST_HALF=1;
+    public static final int  SECOND_HALF=2;
 
     public Statistics(Cursor c) throws Exception
     {
@@ -24,8 +26,8 @@ public class Statistics {
         this._id = c.getInt(c.getColumnIndexOrThrow(DatabaseHandler.GAMEID));
         this.distance = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.DISTANCE));
         this.time = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TIME))/60; //convert to minute;
-        this.avg_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.STATS_AVGSPEED));
-        this.top_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TOPSPEED));
+        this.avg_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.STATS_AVGSPEED)) * 1.6;//convert to km
+        this.top_speed = c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.TOPSPEED)) * 1.6;
         this.half = c.getInt(c.getColumnIndexOrThrow(DatabaseHandler.HALF));
         Double tmp =  c.getDouble(c.getColumnIndexOrThrow(DatabaseHandler.INZONE));
         this.inZone = tmp.intValue();
@@ -64,7 +66,9 @@ public class Statistics {
     public String getAvg_speed() {
         return doubleToString(avg_speed);
     }
-
+    public Double getAvg_speedAsDouble() {
+        return avg_speed;
+    }
     public String getTime() {
         return doubleToString(time);
     }
