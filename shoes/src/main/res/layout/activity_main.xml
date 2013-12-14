@@ -9,13 +9,7 @@
         android:layout_centerVertical="true"
         android:orientation="vertical"
         android:id="@+id/linearLayout">
-        <com.facebook.widget.LoginButton
-            android:id="@+id/authButton"
-            android:layout_width="176dp"
-            android:layout_marginBottom="20px"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/button_graph"
 
@@ -35,6 +29,8 @@
             android:text="@string/statistics" />
 
     </LinearLayout>
+
+        android:layout_alignEnd="@+id/linearLayout" />
 
 
 

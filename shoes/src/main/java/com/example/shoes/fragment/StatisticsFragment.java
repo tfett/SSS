@@ -37,7 +37,7 @@ import java.util.List;
  * Created by zac on 12/11/13.
  */
 public class StatisticsFragment extends MainFragment{
-    protected View view;
+
     protected DatabaseHandler db;
     protected  Button first_button;
     protected  Button second_button;
@@ -81,6 +81,7 @@ public class StatisticsFragment extends MainFragment{
         {
             Statistics stat;
             stat = new Statistics(cursor);
+            setUpStatistics(stat);
             setUpSimilarPlayers(stat.getAvg_speedAsDouble());
         }
         catch (Exception e)
@@ -166,6 +167,26 @@ public class StatisticsFragment extends MainFragment{
             task.execute();
         }
 
+    }
+    protected void setUpStatistics(Statistics stat)
+    {
+        TextView distanceText = (TextView)view.findViewById(R.id.distance);
+        distanceText.setText(stat.getDistance());
+
+        TextView timeText = (TextView)view.findViewById(R.id.time);
+        timeText.setText(stat.getTime());
+
+        TextView avg_speedText = (TextView)view.findViewById(R.id.avg_speed);
+        avg_speedText.setText(stat.getAvg_speed());
+
+        TextView topText = (TextView)view.findViewById(R.id.top);
+        topText.setText(stat.getTop_speed());
+
+        TextView inZone = (TextView)view.findViewById(R.id.inZone);
+        inZone.setText(stat.getInZone());
+
+        TextView outZone = (TextView)view.findViewById(R.id.outZone);
+        outZone.setText(stat.getOutZone());
     }
     protected void setUpSimilarPlayers(Double avgSpeed)
     {
